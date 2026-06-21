@@ -1,24 +1,75 @@
 # API Campo Minado
 
-API REST desenvolvida em Node.js para uma plataforma de apostas baseada no jogo Campo Minado (Minesweeper). O sistema permite o cadastro e autenticação de usuários, controle de saldo, realização de apostas e o gerenciamento completo das partidas.
+API REST desenvolvida em Node.js para uma plataforma de apostas baseada no jogo Campo Minado.
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
+* Node.js (v24.15.0)
+* Express.js
+* PostgreSQL
+* dotenv
+* cors
 
-* **Back-End:** Node.js (v24.15.0)
-* **Framework:** Express.js
-* **Banco de Dados:** PostgreSQL
-* **Bibliotecas Adicionais:** `cors`, `dotenv`, `pg`
-* **Ambiente de Desenvolvimento:** `nodemon`
-
-## 👥 Integrantes do Grupo
-
+## Integrantes
 * Nilton Neves Da Silva Júnior
-* [Nome do Integrante 2]
 
+## Instalação
+Clone o repositório:
+git clone https://github.com/Niltix-py/api-campo-minado
 
-## 🚀 Instalação e Execução
-
-### 1. Clonar o Repositório
-```bash
-git clone [https://github.com/SEU_USUARIO_GITHUB/api-campo-minado.git](https://github.com/SEU_USUARIO_GITHUB/api-campo-minado.git)
+Acesse a pasta do projeto:
 cd api-campo-minado
+
+Instale as dependências:
+npm install
+
+## Configuração
+Crie um arquivo .env na raiz do projeto:
+
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=5433
+DB_NAME=campo_minado
+DB_USER=postgres
+DB_PASSWORD=postgres
+
+# Server Configuration
+PORT=3000
+NODE_ENV=development
+
+## Executando a aplicação
+npm run dev
+
+A API estará disponível em:
+http://localhost:3000
+
+## Endpoints
+
+### Cadastro de usuário
+POST /auth/register
+
+### Login
+POST /auth/login
+
+### Redefinir Senha
+PATCH /auth/reset-password
+
+### Perfil do Usuário
+GET /users/{id}
+
+### Dashboard de Estatísticas
+GET /users/dashboard
+
+### Cadastrar Saldo
+PUT /users/{id}
+
+### Excluir Usuário
+DELETE /users/{id}
+
+### Iniciar jogo
+POST /games/start
+
+### Revelar posição
+POST /games/{gameId}/reveal
+
+### Sacar prêmio
+POST /games/{gameId}/cashout
